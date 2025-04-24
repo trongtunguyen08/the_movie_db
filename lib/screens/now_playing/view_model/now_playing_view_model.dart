@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:the_movie_db/core/models/movie_model.dart';
-import 'package:the_movie_db/features/now_playing/repositories/now_playing_repository.dart';
+import 'package:the_movie_db/screens/now_playing/repositories/now_playing_repository.dart';
 
 part 'now_playing_view_model.g.dart';
 

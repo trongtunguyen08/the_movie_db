@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_movie_db/core/contants/server_contants.dart';
 import 'package:the_movie_db/core/models/movie_model.dart';
-import 'package:the_movie_db/features/movie_details/view/movie_details_page.dart';
+import 'package:the_movie_db/screens/movie_details/view/movie_details_page.dart';
 
 class MovieCard extends StatelessWidget {
   final MovieModel movie;
@@ -24,13 +24,10 @@ class MovieCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
-            child: Hero(
-              tag: movie.posterPath,
-              child: Image.network(
-                "${ServerContants.apiImageURL}${movie.posterPath}",
-                fit: BoxFit.fill,
-                width: double.infinity,
-              ),
+            child: Image.network(
+              "${ServerContants.apiImageURL}${movie.posterPath}",
+              fit: BoxFit.fill,
+              width: double.infinity,
             ),
           ),
           Padding(

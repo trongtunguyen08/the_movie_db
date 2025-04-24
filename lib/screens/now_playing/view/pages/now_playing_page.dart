@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:the_movie_db/core/widgets/movie_card.dart';
-import 'package:the_movie_db/features/popular/view_model/popular_view_model.dart';
+import 'package:the_movie_db/screens/now_playing/view_model/now_playing_view_model.dart';
 
-class PopularPage extends ConsumerStatefulWidget {
-  const PopularPage({super.key});
+class NowPlayingPage extends ConsumerStatefulWidget {
+  const NowPlayingPage({super.key});
 
   @override
-  ConsumerState<PopularPage> createState() => _PopularPageState();
+  ConsumerState<NowPlayingPage> createState() => _NowPlayingPageState();
 }
 
-class _PopularPageState extends ConsumerState<PopularPage> {
+class _NowPlayingPageState extends ConsumerState<NowPlayingPage> {
   final ScrollController _scrollController = ScrollController();
 
   @override
@@ -28,25 +28,25 @@ class _PopularPageState extends ConsumerState<PopularPage> {
   void _scrollListener() {
     if (_scrollController.position.pixels ==
         _scrollController.position.maxScrollExtent) {
-      ref.read(popularViewModelProvider.notifier).loadMore();
+      ref.read(nowPlayingViewModelProvider.notifier).loadMore();
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final popularMovieState = ref.watch(popularViewModelProvider);
+    final nowPlayingState = ref.watch(nowPlayingViewModelProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Popular")),
+      appBar: AppBar(title: const Text("Now Playing")),
       body: RefreshIndicator(
-        child: popularMovieState.when(
+        child: nowPlayingState.when(
           data: (movies) {
             if (movies.isEmpty) {
-              return const Center(child: Text("Data Not Found!"));
+              return Center(child: const Text("No Data Found!"));
             }
             return GridView.builder(
-              controller: _scrollController,
               itemCount: movies.length,
+              controller: _scrollController,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 8 / 14,
@@ -64,7 +64,7 @@ class _PopularPageState extends ConsumerState<PopularPage> {
                 Text(error.toString()),
                 ElevatedButton(
                   onPressed: () {
-                    ref.invalidate(popularViewModelProvider);
+                    ref.invalidate(nowPlayingViewModelProvider);
                   },
                   child: const Text("Retry!"),
                 ),
@@ -72,11 +72,11 @@ class _PopularPageState extends ConsumerState<PopularPage> {
             );
           },
           loading: () {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           },
         ),
         onRefresh: () {
-          return ref.read(popularViewModelProvider.notifier).onRefresh();
+          return ref.read(nowPlayingViewModelProvider.notifier).onRefresh();
         },
       ),
     );

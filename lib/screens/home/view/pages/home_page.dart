@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:the_movie_db/features/now_playing/view/pages/now_playing_page.dart';
-import 'package:the_movie_db/features/popular/view/popular_page.dart';
-import 'package:the_movie_db/features/top_rated/view/top_rated_page.dart';
-import 'package:the_movie_db/features/upcoming/view/upcoming_page.dart';
+import 'package:the_movie_db/screens/now_playing/view/pages/now_playing_page.dart';
+import 'package:the_movie_db/screens/popular/view/popular_page.dart';
+import 'package:the_movie_db/screens/top_rated/view/top_rated_page.dart';
+import 'package:the_movie_db/screens/upcoming/view/upcoming_page.dart';
 
 List<Widget> homeLayouts = [
   NowPlayingPage(),
