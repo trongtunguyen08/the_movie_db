@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:the_movie_db/features/now_playing/view/pages/now_playing_page.dart';
-import 'package:the_movie_db/features/popular/view/pages/popular_page.dart';
-import 'package:the_movie_db/features/top_rated/view/pages/top_rated_page.dart';
-import 'package:the_movie_db/features/upcoming/view/pages/upcoming_page.dart';
+import 'package:the_movie_db/features/popular/view/popular_page.dart';
+import 'package:the_movie_db/features/top_rated/view/top_rated_page.dart';
+import 'package:the_movie_db/features/upcoming/view/upcoming_page.dart';
 
 List<Widget> homeLayouts = [
   NowPlayingPage(),
@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: homeLayouts.elementAt(currentPageIndex),
+      body: IndexedStack(index: currentPageIndex, children: homeLayouts),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(

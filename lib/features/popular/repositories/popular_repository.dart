@@ -1,28 +1,29 @@
 import 'dart:convert';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:http/http.dart' as http;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:the_movie_db/core/contants/app_contants.dart';
 import 'package:the_movie_db/core/contants/server_contants.dart';
 import 'package:the_movie_db/core/failure/app_failure.dart';
 import 'package:the_movie_db/core/models/movie_model.dart';
+import 'package:http/http.dart' as http;
 
-part 'now_playing_repository.g.dart';
+part 'popular_repository.g.dart';
 
 @riverpod
-NowPlayingRepository nowPlayingRepository(Ref ref) {
-  return NowPlayingRepository();
+PopularRepository popularRepository(Ref ref) {
+  return PopularRepository();
 }
 
-class NowPlayingRepository {
-  Future<Either<AppFailure, (List<MovieModel>, int)>> nowPlaying({
+class PopularRepository {
+  Future<Either<AppFailure, (List<MovieModel>, int)>> popular({
     int page = 1,
   }) async {
     try {
       final response = await http.get(
         Uri.parse(
-          "${ServerContants.apiURL}/movie/now_playing?language=${AppContants.apiLanguage}&page=$page",
+          "${ServerContants.apiURL}/movie/popular?language=${AppContants.apiLanguage}&page=$page",
         ),
         headers: {
           "accept": "application/json",
