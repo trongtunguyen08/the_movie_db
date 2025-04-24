@@ -89,20 +89,20 @@ class MovieModel {
 
   factory MovieModel.fromMap(Map<String, dynamic> map) {
     return MovieModel(
-      id: map["id"] as int,
-      adult: map["adult"] as bool,
-      backdropPath: map["backdrop_path"] as String,
-      genreIds: map["genre_ids"] as List<int>,
-      originalLanguage: map["original_language"] as String,
-      originalTitle: map["original_title"] as String,
-      overview: map["overview"] as String,
-      popularity: map["popularity"] as double,
-      posterPath: map["poster_path"] as String,
-      releaseDate: map["release_date"] as String,
-      title: map["title"] as String,
-      video: map["video"] as bool,
-      voteAverage: map["vote_average"] as double,
-      voteCount: map["vote_count"] as int,
+      id: (map["id"] as num?)?.toInt() ?? 0,
+      adult: map["adult"] as bool? ?? false,
+      backdropPath: map["backdrop_path"] as String? ?? '',
+      genreIds: (map["genre_ids"] as List<dynamic>?)?.cast<int>() ?? <int>[],
+      originalLanguage: map["original_language"] as String? ?? 'en',
+      originalTitle: map["original_title"] as String? ?? '',
+      overview: map["overview"] as String? ?? '',
+      popularity: (map["popularity"] as num?)?.toDouble() ?? 0.0,
+      posterPath: map["poster_path"] as String? ?? '',
+      releaseDate: map["release_date"] as String? ?? '',
+      title: map["title"] as String? ?? '',
+      video: map["video"] as bool? ?? false,
+      voteAverage: (map["vote_average"] as num?)?.toDouble() ?? 0.0,
+      voteCount: (map["vote_count"] as num?)?.toInt() ?? 0,
     );
   }
 

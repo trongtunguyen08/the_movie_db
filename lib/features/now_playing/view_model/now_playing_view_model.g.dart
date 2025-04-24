@@ -7,13 +7,13 @@ part of 'now_playing_view_model.dart';
 // **************************************************************************
 
 String _$nowPlayingViewModelHash() =>
-    r'c02e485b235cfc2cbfd2ecac7cc3d4d444966b3b';
+    r'7a23c164e84de4ea094752a253d41f0001c6bf88';
 
 /// See also [NowPlayingViewModel].
 @ProviderFor(NowPlayingViewModel)
-final nowPlayingViewModelProvider = AutoDisposeNotifierProvider<
+final nowPlayingViewModelProvider = AutoDisposeAsyncNotifierProvider<
   NowPlayingViewModel,
-  AsyncValue<List<MovieModel>>?
+  List<MovieModel>
 >.internal(
   NowPlayingViewModel.new,
   name: r'nowPlayingViewModelProvider',
@@ -25,7 +25,6 @@ final nowPlayingViewModelProvider = AutoDisposeNotifierProvider<
   allTransitiveDependencies: null,
 );
 
-typedef _$NowPlayingViewModel =
-    AutoDisposeNotifier<AsyncValue<List<MovieModel>>?>;
+typedef _$NowPlayingViewModel = AutoDisposeAsyncNotifier<List<MovieModel>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

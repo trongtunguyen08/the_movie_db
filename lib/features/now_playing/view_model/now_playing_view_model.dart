@@ -1,4 +1,3 @@
-import 'package:fpdart/fpdart.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:the_movie_db/core/models/movie_model.dart';
 import 'package:the_movie_db/features/now_playing/repositories/now_playing_repository.dart';
@@ -8,21 +7,58 @@ part 'now_playing_view_model.g.dart';
 @riverpod
 class NowPlayingViewModel extends _$NowPlayingViewModel {
   late NowPlayingRepository _nowPlayingRepository;
+  int? _totalPages;
+  int _currentPage = 1;
+  final List<MovieModel> _movies = [];
 
   @override
-  AsyncValue<List<MovieModel>>? build() {
-    _nowPlayingRepository = ref.watch(nowPlayingRepositoryProvider);
-    return null;
+  Future<List<MovieModel>> build() async {
+    _nowPlayingRepository = ref.read(nowPlayingRepositoryProvider);
+    await _loadInitial();
+    return _movies;
   }
 
-  Future<void> getNowPlayingMovieList() async {
+  Future<void> _loadInitial() async {
+    _currentPage = 1;
     state = const AsyncValue.loading();
-    final res = await _nowPlayingRepository.fetchNowPlaying();
-    final val = switch (res) {
-      Left(value: final l) =>
-        state = AsyncValue.error(l.message, StackTrace.current),
-      Right(value: final r) => state = AsyncValue.data(r),
-    };
-    print(val);
+
+    final res = await _nowPlayingRepository.nowPlaying();
+
+    res.fold(
+      (failure) {
+        state = AsyncValue.error(failure.message, StackTrace.current);
+      },
+      (data) {
+        _movies.clear();
+        _movies.addAll(data.$1);
+        _totalPages = data.$2;
+        state = AsyncValue.data(_movies);
+      },
+    );
+  }
+
+  Future<void> loadMore() async {
+    if (_currentPage == _totalPages || state.isLoading) {
+      return;
+    }
+
+    _currentPage++;
+    final res = await _nowPlayingRepository.nowPlaying(page: _currentPage);
+
+    res.fold(
+      (failure) {
+        _currentPage--;
+        state = AsyncValue.error(failure.message, StackTrace.current);
+      },
+      (data) {
+        _movies.addAll(data.$1);
+        _totalPages = data.$2;
+        state = AsyncValue.data([..._movies]);
+      },
+    );
+  }
+
+  Future<void> onRefresh() async {
+    await _loadInitial();
   }
 }

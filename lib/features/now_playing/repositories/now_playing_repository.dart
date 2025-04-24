@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:http/http.dart' as http;
@@ -17,22 +16,24 @@ NowPlayingRepository nowPlayingRepository(Ref ref) {
 }
 
 class NowPlayingRepository {
-  Future<Either<AppFailure, List<MovieModel>>> fetchNowPlaying() async {
+  Future<Either<AppFailure, (List<MovieModel>, int)>> nowPlaying({
+    int page = 1,
+  }) async {
     try {
       final response = await http.get(
         Uri.parse(
-          "${ServerContants.apiURL}/movie/now_playing?language=en-US&page=1",
+          "${ServerContants.apiURL}/movie/now_playing?language=${AppContants.apiLanguage}&page=$page",
         ),
         headers: {
           "accept": "application/json",
           "Authorization": "Bearer ${AppContants.apiKey}",
         },
       );
-      final resJsonBody = jsonDecode(response.body) as Map<String, dynamic>;
-      if (kDebugMode) {
-        print(resJsonBody);
-      }
-      return Right(resJsonBody as List<MovieModel>);
+      final responseJson = jsonDecode(response.body) as Map<String, dynamic>;
+      final results = responseJson["results"] as List<dynamic>? ?? [];
+      final totalPages = responseJson["total_pages"] as int? ?? 1;
+      final movies = results.map((e) => MovieModel.fromMap(e)).toList();
+      return Right((movies, totalPages));
     } catch (e) {
       return Left(AppFailure(e.toString()));
     }
