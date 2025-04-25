@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:the_movie_db/core/contants/server_contants.dart';
 import 'package:the_movie_db/core/models/movie_model.dart';
+import 'package:the_movie_db/screens/cast_info/view/cast_info_page.dart';
 import 'package:the_movie_db/screens/movie_details/view_model/movie_details_view_model.dart';
 import 'package:the_movie_db/screens/movie_details/widgets/poster_skeleton_widget.dart';
 import 'package:the_movie_db/screens/movie_details/widgets/youtube_player_widget.dart';
@@ -88,26 +89,38 @@ class _MovieDetailsPageState extends ConsumerState<MovieDetailsPage> {
                     itemCount: data.casts.length,
                     itemBuilder: (context, index) {
                       final cast = data.casts[index];
-                      return Container(
-                        width: 100.0,
-                        margin: const EdgeInsets.only(right: 8.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                "${ServerContants.apiImageURL}${cast.profilePath}",
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return CastInfoPage(castId: cast.id);
+                              },
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: 100.0,
+                          margin: const EdgeInsets.only(right: 8.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              CircleAvatar(
+                                backgroundImage: NetworkImage(
+                                  "${ServerContants.apiImageURL}${cast.profilePath}",
+                                ),
+                                radius: 40,
                               ),
-                              radius: 40,
-                            ),
-                            const SizedBox(height: 4.0),
-                            Text(
-                              cast.name,
-                              maxLines: 1,
-                              textAlign: TextAlign.center,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
+                              const SizedBox(height: 4.0),
+                              Text(
+                                cast.name,
+                                maxLines: 1,
+                                textAlign: TextAlign.center,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     },
