@@ -1,0 +1,30 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "the-movie-db-93785",
+          "appId": "1:187050951968:android:0940fd914e35903454c345",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "the-movie-db-93785",
+          "appId": "1:187050951968:ios:1d0b4b7dfde547e754c345",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "the-movie-db-93785",
+          "configurations": {
+            "android": "1:187050951968:android:0940fd914e35903454c345",
+            "ios": "1:187050951968:ios:1d0b4b7dfde547e754c345"
+          }
+        }
+      }
+    }
+  }
+}

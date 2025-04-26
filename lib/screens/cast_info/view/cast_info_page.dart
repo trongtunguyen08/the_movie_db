@@ -33,7 +33,7 @@ class _CastInfoPageState extends ConsumerState<CastInfoPage> {
       appBar: AppBar(),
       body: castInfoState.when(
         data: (data) {
-          final CastInfoModel? castInfo = data?.castInfo;
+          final CastInfoModel? castInfo = data.castInfo;
           final List<MovieModel> movies = data.movies;
 
           if (castInfo == null) {

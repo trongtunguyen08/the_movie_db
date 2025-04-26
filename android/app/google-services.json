@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "187050951968",
+    "project_id": "the-movie-db-93785",
+    "storage_bucket": "the-movie-db-93785.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187050951968:android:99d3de148bed6ce254c345",
+        "android_client_info": {
+          "package_name": "com.example.the_movie_db"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3qLWISeajHJd6_iG6w7pXbq4b10m9u_E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187050951968:android:0940fd914e35903454c345",
+        "android_client_info": {
+          "package_name": "com.tunguyen.tmdb"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3qLWISeajHJd6_iG6w7pXbq4b10m9u_E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
