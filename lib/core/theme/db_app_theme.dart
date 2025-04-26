@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:the_movie_db/core/theme/app_pallete.dart';
+import 'package:tmdb/core/theme/app_pallete.dart';
 
 class DbAppTheme {
   static OutlineInputBorder _border(Color color) => OutlineInputBorder(

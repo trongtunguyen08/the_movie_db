@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:the_movie_db/screens/movie_details/model/movie_detail_model.dart';
-import 'package:the_movie_db/screens/movie_details/repositories/movie_details_repository.dart';
+import 'package:tmdb/screens/movie_details/model/movie_detail_model.dart';
+import 'package:tmdb/screens/movie_details/repositories/movie_details_repository.dart';
 
 part 'movie_details_view_model.g.dart';
 

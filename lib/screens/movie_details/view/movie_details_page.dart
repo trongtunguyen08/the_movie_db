@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:the_movie_db/core/contants/server_contants.dart';
-import 'package:the_movie_db/core/models/movie_model.dart';
-import 'package:the_movie_db/screens/cast_info/view/cast_info_page.dart';
-import 'package:the_movie_db/screens/movie_details/view_model/movie_details_view_model.dart';
-import 'package:the_movie_db/screens/movie_details/widgets/poster_skeleton_widget.dart';
-import 'package:the_movie_db/screens/movie_details/widgets/youtube_player_widget.dart';
+import 'package:tmdb/core/contants/server_contants.dart';
+import 'package:tmdb/core/models/movie_model.dart';
+import 'package:tmdb/screens/cast_info/view/cast_info_page.dart';
+import 'package:tmdb/screens/movie_details/view_model/movie_details_view_model.dart';
+import 'package:tmdb/screens/movie_details/widgets/poster_skeleton_widget.dart';
+import 'package:tmdb/screens/movie_details/widgets/youtube_player_widget.dart';
 
 class MovieDetailsPage extends ConsumerStatefulWidget {
   final MovieModel movie;

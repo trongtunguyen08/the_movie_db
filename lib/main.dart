@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:the_movie_db/core/theme/app_pallete.dart';
-import 'package:the_movie_db/core/theme/db_app_theme.dart';
-import 'package:the_movie_db/screens/home/view/pages/home_page.dart';
+import 'package:tmdb/core/theme/app_pallete.dart';
+import 'package:tmdb/core/theme/db_app_theme.dart';
+import 'package:tmdb/screens/home/view/pages/home_page.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");

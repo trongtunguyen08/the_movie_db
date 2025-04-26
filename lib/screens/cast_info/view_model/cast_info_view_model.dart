@@ -1,10 +1,10 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:the_movie_db/core/failure/app_failure.dart';
-import 'package:the_movie_db/core/models/movie_model.dart';
-import 'package:the_movie_db/screens/cast_info/model/cast_info_model.dart';
-import 'package:the_movie_db/screens/cast_info/model/cast_info_response_model.dart';
-import 'package:the_movie_db/screens/cast_info/repositories/cast_info_repository.dart';
+import 'package:tmdb/core/failure/app_failure.dart';
+import 'package:tmdb/core/models/movie_model.dart';
+import 'package:tmdb/screens/cast_info/model/cast_info_model.dart';
+import 'package:tmdb/screens/cast_info/model/cast_info_response_model.dart';
+import 'package:tmdb/screens/cast_info/repositories/cast_info_repository.dart';
 
 part 'cast_info_view_model.g.dart';
 

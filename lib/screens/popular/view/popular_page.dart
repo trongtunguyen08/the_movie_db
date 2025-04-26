@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:the_movie_db/core/widgets/movie_card.dart';
-import 'package:the_movie_db/screens/popular/view_model/popular_view_model.dart';
+import 'package:tmdb/core/widgets/movie_card.dart';
+import 'package:tmdb/screens/popular/view_model/popular_view_model.dart';
 
 class PopularPage extends ConsumerStatefulWidget {
   const PopularPage({super.key});

@@ -1,5 +1,5 @@
-import 'package:the_movie_db/core/models/movie_model.dart';
-import 'package:the_movie_db/screens/cast_info/model/cast_info_model.dart';
+import 'package:tmdb/core/models/movie_model.dart';
+import 'package:tmdb/screens/cast_info/model/cast_info_model.dart';
 
 class CastInfoResponseModel {
   final CastInfoModel? castInfo;

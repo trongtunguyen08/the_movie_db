@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:the_movie_db/core/widgets/movie_card.dart';
-import 'package:the_movie_db/screens/now_playing/view_model/now_playing_view_model.dart';
+import 'package:tmdb/core/widgets/movie_card.dart';
+import 'package:tmdb/screens/now_playing/view_model/now_playing_view_model.dart';
 
 class NowPlayingPage extends ConsumerStatefulWidget {
   const NowPlayingPage({super.key});

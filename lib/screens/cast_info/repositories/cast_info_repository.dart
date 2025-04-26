@@ -3,11 +3,11 @@ import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:the_movie_db/core/contants/app_contants.dart';
-import 'package:the_movie_db/core/contants/server_contants.dart';
-import 'package:the_movie_db/core/failure/app_failure.dart';
-import 'package:the_movie_db/core/models/movie_model.dart';
-import 'package:the_movie_db/screens/cast_info/model/cast_info_model.dart';
+import 'package:tmdb/core/contants/app_contants.dart';
+import 'package:tmdb/core/contants/server_contants.dart';
+import 'package:tmdb/core/failure/app_failure.dart';
+import 'package:tmdb/core/models/movie_model.dart';
+import 'package:tmdb/screens/cast_info/model/cast_info_model.dart';
 import 'package:http/http.dart' as http;
 
 part 'cast_info_repository.g.dart';

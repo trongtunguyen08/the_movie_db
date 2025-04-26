@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:the_movie_db/core/models/movie_model.dart';
-import 'package:the_movie_db/screens/popular/repositories/popular_repository.dart';
+import 'package:tmdb/core/models/movie_model.dart';
+import 'package:tmdb/screens/popular/repositories/popular_repository.dart';
 
 part 'popular_view_model.g.dart';
 

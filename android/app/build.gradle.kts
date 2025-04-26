@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.the_movie_db"
+    namespace = "com.tunguyen.tmdb"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 

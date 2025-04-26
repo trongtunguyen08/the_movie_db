@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:the_movie_db/core/contants/server_contants.dart';
-import 'package:the_movie_db/core/models/movie_model.dart';
-import 'package:the_movie_db/screens/movie_details/view/movie_details_page.dart';
+import 'package:tmdb/core/contants/server_contants.dart';
+import 'package:tmdb/core/models/movie_model.dart';
+import 'package:tmdb/screens/movie_details/view/movie_details_page.dart';
 
 class MovieCard extends StatelessWidget {
   final MovieModel movie;

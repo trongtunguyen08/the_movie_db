@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:the_movie_db/core/contants/server_contants.dart';
-import 'package:the_movie_db/core/models/movie_model.dart';
-import 'package:the_movie_db/screens/cast_info/model/cast_info_model.dart';
-import 'package:the_movie_db/screens/cast_info/view_model/cast_info_view_model.dart';
+import 'package:tmdb/core/contants/server_contants.dart';
+import 'package:tmdb/core/models/movie_model.dart';
+import 'package:tmdb/screens/cast_info/model/cast_info_model.dart';
+import 'package:tmdb/screens/cast_info/view_model/cast_info_view_model.dart';
 import 'package:readmore/readmore.dart';
 
 class CastInfoPage extends ConsumerStatefulWidget {
@@ -33,7 +33,7 @@ class _CastInfoPageState extends ConsumerState<CastInfoPage> {
       appBar: AppBar(),
       body: castInfoState.when(
         data: (data) {
-          final CastInfoModel? castInfo = data.castInfo;
+          final CastInfoModel? castInfo = data?.castInfo;
           final List<MovieModel> movies = data.movies;
 
           if (castInfo == null) {
